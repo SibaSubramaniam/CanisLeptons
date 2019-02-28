@@ -240,12 +240,12 @@ class LabelGenerator(object):
 		#sharp_ratio
 		sharp_ratio=self.sharp_ratio(ret,risk,vol)
 		
-		result = pd.concat([close,ret,events,labels,sharp_ratio], axis=1, sort=False)
+		result = pd.concat([close,ret,events,labels,sharp_ratio], axis=1)
 		result.columns=['close','return','volatility','type','vbars','ret','label','sharp_ratio']
 		
 		profit=self.profit(result,1)
 
-		result = pd.concat([result,profit], axis=1, sort=False).dropna()
+		result = pd.concat([result,profit], axis=1).dropna()
 		
 		return result
 
